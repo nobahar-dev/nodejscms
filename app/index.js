@@ -29,6 +29,8 @@ module.exports = class Application {
     setupMongoConnection() {
         mongoose.Promise = global.Promise
         mongoose.connect('mongodb://localhost/nodejscms')
+            .then(() => console.log('database is connected'))
+            .catch(error => console.log(`error connecting to database => ${error.message}`))
     }
 
     // setting up express config
